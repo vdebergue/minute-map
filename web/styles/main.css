@@ -8,9 +8,12 @@ body {
 }
 
 .node {
-	/*fill: rgb(17, 3, 32);*/
-	fill: white;
-	stroke-width: 3px;
+	fill: rgb(17, 3, 32);
+	stroke-width: 2px;
+}
+
+circle {
+	stroke: white;
 }
 
 .label {

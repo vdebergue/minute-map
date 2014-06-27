@@ -49,7 +49,7 @@ d3.json("/stop_times.json", function(error, json) {
     .attr("class", function(d) { return "node line-" + d.id; });
 
   node.append("circle")
-      .attr("r", 5)
+      .attr("r", 4)
       .attr("class", "station")
       .on("click", changeMap);
 
