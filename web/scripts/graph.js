@@ -39,11 +39,13 @@ d3.json("/stop_times.json", function(error, json) {
   node.append("circle")
       .attr("r", 5)
       .attr("class", "station")
+      .on("click", changeMap);
 
   node.append("text")
       .attr("class", "label")
       .attr("transform", "translate(-10, -10)")
-      .text(function(d) {return d.name});
+      .text(function(d) {return d.name})
+      .on("click", changeMap);
 
   // connecting the dots
   container.selectAll(".line")
@@ -60,6 +62,19 @@ d3.json("/stop_times.json", function(error, json) {
 
 function zoomed() {
 	container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
+
+function changeMap(origin) {
+  console.log(origin)
+  // var force = d3.layout.force()
+  //   .nodes(data.nodes)
+  //   .links(data.edges)
+  //   .size([width, height])
+  //   .linkDistance(function(d) {
+  //     console.log(d);
+  //     return d.time;
+  //   })
+  //   .start();
 }
 
  // svg.selectAll("circle.nodes")
