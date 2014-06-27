@@ -27,25 +27,24 @@ var projection = d3.geo.mercator()
 d3.json("/stop_times.json", function(error, json) {
   window.data = clean(json);
 
-  var node = container.selectAll("circle.node")
+  var node = container.selectAll(".node")
     .data(data.nodesArr)
     .enter()
     .append("g")
+    .attr("transform", function(d) {
+        var x = projection([d.lat, d.lon])[0];
+        var y = (projection([d.lat, d.lon])[1]);
+        return "translate(" + x + "," + y + ")";
+      })
     .attr("class", "node")
 
-  node.append("svg:circle")
-      .attr("cx", function(d) { return projection([d.lat, d.lon])[0]; })
-      .attr("cy", function(d) { return projection([d.lat, d.lon])[1]; })
-      .attr("r", "5px")
-      .attr("fill", "black");
+  node.append("circle")
+      .attr("r", 5)
+      .attr("class", "station")
 
   node.append("text")
       .attr("class", "label")
-      .attr("transform", function(d) {
-        var x = projection([d.lat, d.lon])[0] - 15;
-        var y = (projection([d.lat, d.lon])[1]) - 15;
-        return "translate(" + x + "," + y + ")";
-      })
+      .attr("transform", "translate(-10, -10)")
       .text(function(d) {return d.name});
 
   // connecting the dots
@@ -54,7 +53,7 @@ d3.json("/stop_times.json", function(error, json) {
      .enter()
      .append("line")
      .attr("class", "line")
-     .attr("x1", function(d) { console.log(d);return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[0]; })
+     .attr("x1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[0]; })
      .attr("y1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[1]; })
      .attr("x2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[0]; })
      .attr("y2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[1]; })
