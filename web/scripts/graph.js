@@ -21,7 +21,8 @@ svg.append("rect")
 // var bottomRight = [48.8111773, 2.3849753];
 var projection = d3.geo.mercator()
                        .center([48.8584637, 2.3465449])
-                       .scale(600000);
+                       .scale(500000)
+                       .translate([width / 2, height / 2]);
 
 var node = container.selectAll("circle.node")
     .data(data.nodesArr)
