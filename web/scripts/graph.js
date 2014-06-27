@@ -17,12 +17,12 @@ svg.append("rect")
    .attr("height", height)
    .call(zoom);
 
-// var topLeft = [48.8698693, 2.3345286];
-// var bottomRight = [48.8111773, 2.3849753];
 var projection = d3.geo.mercator()
-                       .center([48.8584637, 2.3465449])
+                       .center([2.3465449,48.8584637])
                        .scale(500000)
                        .translate([width / 2, height / 2]);
+
+var path = d3.geo.path().projection(projection);
 
 d3.json("/stop_times.json", function(error, json) {
   window.data = clean(json);
@@ -32,9 +32,7 @@ d3.json("/stop_times.json", function(error, json) {
     .enter()
     .append("g")
     .attr("transform", function(d) {
-        var x = projection([d.lat, d.lon])[0];
-        var y = (projection([d.lat, d.lon])[1]);
-        return "translate(" + x + "," + y + ")";
+        return "translate(" + projection([d.lon, d.lat]) + ")";
       })
     .attr("class", "node")
 
@@ -53,10 +51,10 @@ d3.json("/stop_times.json", function(error, json) {
      .enter()
      .append("line")
      .attr("class", "line")
-     .attr("x1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[0]; })
-     .attr("y1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[1]; })
-     .attr("x2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[0]; })
-     .attr("y2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[1]; })
+     .attr("x1", function(d) { return projection([data.nodes[d.from].lon, data.nodes[d.from].lat])[0]; })
+     .attr("y1", function(d) { return projection([data.nodes[d.from].lon, data.nodes[d.from].lat])[1]; })
+     .attr("x2", function(d) { return projection([data.nodes[d.to].lon, data.nodes[d.to].lat])[0]; })
+     .attr("y2", function(d) { return projection([data.nodes[d.to].lon, data.nodes[d.to].lat])[1]; })
      .style("stroke", "rgb(6,120,155)");
 });
 
