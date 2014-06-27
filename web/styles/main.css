@@ -1,4 +1,183 @@
+body {
+	background-color: rgb(17, 3, 32);
+}
+
 .container {
 	margin: auto;
 	width: 75%;
+}
+
+.node {
+	fill: rgb(17, 3, 32);
+	stroke-width: 3px;
+}
+
+.label {
+	fill: white;
+}
+
+.line {
+	stroke-width: 2px;
+}
+
+.line-1 circle,
+.line.line-1 {
+	stroke: rgb(255, 205, 0);
+}
+
+.line-1 text {
+	fill: rgb(255, 205, 0);
+}
+
+.line-2 circle,
+.line.line-2 {
+	stroke: rgb(0, 109, 184);
+}
+
+.line-2 text {
+	fill: rgb(0, 109, 184);
+}
+
+.line-3 circle,
+.line.line-3 {
+	stroke: rgb(155, 153, 59);
+}
+
+.line-3 text {
+	fill: rgb(155, 153, 59);
+}
+
+.line-3b circle,
+.line.line-3b {
+	stroke: rgb(136, 211, 223);
+}
+
+.line-3b text {
+	fill: rgb(136, 211, 223);
+}
+
+.line-4 circle,
+.line.line-4 {
+	stroke: rgb(184, 74, 155);
+}
+
+.line-4 text {
+	fill: rgb(184, 74, 155);
+}
+
+.line-5 circle,
+.line.line-5 {
+	stroke: rgb(247, 143, 74);
+}
+
+.line-5 text {
+	fill: rgb(247, 143, 74);
+}
+
+.line-6 circle,
+.line.line-6 {
+	stroke: rgb(119, 198, 151);
+}
+
+.line-6 text {
+	fill: rgb(119, 198, 151);
+}
+
+.line-7 circle,
+.line.line-7 {
+	stroke: rgb(245, 158, 179);
+}
+
+.line-7 text {
+	fill: rgb(245, 158, 179);
+}
+
+.line-7b circle,
+.line.line-7b {
+	stroke: rgb(119, 198, 151);
+}
+
+.line-7b text {
+	fill: rgb(119, 198, 151);
+}
+
+.line-8 circle,
+.line.line-8 {
+	stroke: rgb(197, 163, 205);
+}
+
+.line-8 text {
+	fill: rgb(197, 163, 205);
+}
+
+.line-9 circle,
+.line.line-9 {
+	stroke: rgb(206, 201, 42);
+}
+
+.line-9 text {
+	fill: rgb(206, 201, 42);
+}
+
+.line-10 circle,
+.line.line-10 {
+	stroke: rgb(224, 176, 60);
+}
+
+.line-10 text {
+	line: rgb(224, 176, 60);
+}
+
+.line-11 circle,
+.line.line-11 {
+	stroke: rgb(141, 101, 57);
+}
+
+.line-11 text {
+	fill: rgb(141, 101, 57);
+}
+
+.line-12 circle,
+.line.line-12 {
+	stroke: rgb(8, 140, 90);
+}
+
+.line-12 text {
+	fill: rgb(8, 140, 90);
+}
+
+.line-13 circle,
+.line.line-13 {
+	stroke: rgb(136, 211, 223);
+}
+
+.line-13 text {
+	fill: rgb(136, 211, 223);
+}
+
+.line-14 circle,
+.line.line-14 {
+	stroke: rgb(134, 89, 165);
+}
+
+.line-14 text {
+	fill: rgb(134, 89, 165);
+}
+
+.line-a circle,
+.line.line-a {
+	stroke: rgb(137, 28, 42);
+}
+
+.line-a text {
+	fill: rgb(137, 28, 42);
+}
+
+.line-b circle,
+.line.line-b {
+	stroke: rgb(77, 144, 205);
+}
+
+.line-b text {
+	fill: rgb(77, 144, 205);
 }

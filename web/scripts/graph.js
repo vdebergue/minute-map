@@ -28,7 +28,7 @@ var node = container.selectAll("circle.node")
     .data(data.nodesArr)
     .enter()
     .append("g")
-    .attr("class", "node")
+    .attr("class", function(d) { return "node line-" + d.id; });
 
 node.append("svg:circle")
     .attr("cx", function(d) { return projection([d.lat, d.lon])[0]; })
@@ -50,12 +50,11 @@ container.selectAll(".line")
    .data(data.edges)
    .enter()
    .append("line")
-   .attr("class", "line")
+   .attr("class", function(d) { return "line line-" + d.from; })
    .attr("x1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[0]; })
    .attr("y1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[1]; })
    .attr("x2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[0]; })
-   .attr("y2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[1]; })
-   .style("stroke", "rgb(6,120,155)");
+   .attr("y2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[1]; });
 
 function zoomed() {
 	container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
