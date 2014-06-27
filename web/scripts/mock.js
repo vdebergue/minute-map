@@ -35,7 +35,8 @@ function clean(data) {
 		});
 		line.edges.forEach(function(edge) {
 			edge.line = key;
-			edges.push(edge);
+			if (edge.from !== "")
+				edges.push(edge);
 		});
 	}
 	// HACK

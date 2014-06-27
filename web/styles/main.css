@@ -4,16 +4,18 @@ body {
 
 .container {
 	margin: auto;
-	width: 75%;
+	width: 90%;
 }
 
 .node {
-	fill: rgb(17, 3, 32);
+	/*fill: rgb(17, 3, 32);*/
+	fill: white;
 	stroke-width: 3px;
 }
 
 .label {
 	fill: white;
+	font-size: 0.7em;
 }
 
 .line {
@@ -164,20 +166,20 @@ body {
 	fill: rgb(134, 89, 165);
 }
 
-.line-a circle,
-.line.line-a {
+.line-A circle,
+.line.line-A {
 	stroke: rgb(137, 28, 42);
 }
 
-.line-a text {
+.line-A text {
 	fill: rgb(137, 28, 42);
 }
 
-.line-b circle,
-.line.line-b {
+.line-B circle,
+.line.line-B {
 	stroke: rgb(77, 144, 205);
 }
 
-.line-b text {
+.line-B text {
 	fill: rgb(77, 144, 205);
 }
