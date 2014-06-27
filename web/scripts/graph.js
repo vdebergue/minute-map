@@ -26,14 +26,24 @@ var projection = d3.geo.mercator()
 
 var node = container.selectAll("circle.node")
     .data(data.nodesArr)
-    .enter().append("g")
-    .attr("class", "node");
+    .enter()
+    .append("g")
+    .attr("class", "node")
 
 node.append("svg:circle")
     .attr("cx", function(d) { return projection([d.lat, d.lon])[0]; })
     .attr("cy", function(d) { return projection([d.lat, d.lon])[1]; })
     .attr("r", "10px")
     .attr("fill", "black");
+
+node.append("text")
+    .attr("class", "label")
+    .attr("transform", function(d) {
+      var x = projection([d.lat, d.lon])[0] - 15;
+      var y = (projection([d.lat, d.lon])[1]) - 15;
+      return "translate(" + x + "," + y + ")";
+    })
+    .text(function(d) {return d.name});
 
 // connecting the dots
 container.selectAll(".line")
