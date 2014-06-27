@@ -35,15 +35,16 @@ node.append("svg:circle")
     .attr("fill", "black");
 
 // connecting the dots
-// svg.selectAll(".line")
-//    .data(data.edges)
-//    .enter()
-//    .append("line")
-//    .attr("x1", function(d) { return projection([data.nodes[d.from].lat, d.lon])[0]; })
-//    .attr("y1", function(d) { return projection([d.lat, d.lon])[0]; })
-//    .attr("x2", function(d) { return projection([d.lat, d.lon])[0]; })
-//    .attr("y2", function(d) { return projection([d.lat, d.lon])[0]; })
-//    .style("stroke", "rgb(6,120,155)");
+container.selectAll(".line")
+   .data(data.edges)
+   .enter()
+   .append("line")
+   .attr("class", "line")
+   .attr("x1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[0]; })
+   .attr("y1", function(d) { return projection([data.nodes[d.from].lat, data.nodes[d.from].lon])[1]; })
+   .attr("x2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[0]; })
+   .attr("y2", function(d) { return projection([data.nodes[d.to].lat, data.nodes[d.to].lon])[1]; })
+   .style("stroke", "rgb(6,120,155)");
 
 function zoomed() {
 	container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
