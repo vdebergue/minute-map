@@ -28,22 +28,28 @@ var data = {
 function clean(data) {
 	var nodes = {};
 	var edges = [];
+	var nodesArr = [];
+	var nodeIndex = 0;
 	for (var key in data) {
 		var line = data[key];
 		line.nodes.forEach(function(node) {
+			node.index = nodeIndex;
 			nodes[node.id] = node;
+			nodesArr.push(node);
+			nodeIndex ++;
 		});
 		line.edges.forEach(function(edge) {
 			edge.line = key;
-			if (edge.from !== "")
+			if (edge.from !== "") {
+				edge.from = nodes[edge.from];
+				edge.to = nodes[edge.to];
+				// for d3js
+				edge.source = edge.from;
+				edge.target = edge.to;
 				edges.push(edge);
+			}
 		});
 	}
-	// HACK
-	var nodesArr = [];
-	for (var key in nodes)
-		nodesArr.push(nodes[key]);
-	// HACK
 	return {
 		"nodesArr": nodesArr,
 		"nodes": nodes,
